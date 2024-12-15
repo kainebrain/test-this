@@ -1,0 +1,20 @@
+# Create a virtual environment 
+python -m venv myenv
+
+# Activate the virtual environment
+
+# Windows
+myenv\Scripts\activate
+# macOS and Linux
+source myenv/bin/activate
+
+Step 2: Install Dependencies
+
+Before you can list your project’s dependencies in the requirements.txt file, you need to install them in your virtual environment. You can use pip, Python’s package manager, for this purpose. Here, Replace package-name with the actual name of the package you want to install.
+
+pip install package-name
+i.e. pip install pandas
+
+Step 3: Generate the requirements.txt File Now, you can generate the requirements.txt file by running the following command:
+
+pip freeze > requirements.txt

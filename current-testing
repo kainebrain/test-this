@@ -1,0 +1,75 @@
+ssh
+sudo systemctl start ssh
+sudo systemctl enable ssh
+sudo systemctl status ssh
+
+ssh pieman@192.168.
+
+copy files
+rsync -avz [local_directory] pi@[IP_address]:[destination_directory]
+rsync -avz /home/pieman/Desktop/setup_stuff_ rasp pi@[IP_address]:[destination_directory]
+
+create img for rasp 5
+	detect hardware to determine module name and ip, need to communicate that to main
+	basically a rc.local script to git download / install software / test install / report functioning?
+
+camera hello world
+rpicam-hello --timeout 0
+
+cron job
+crontab -l
+
+iic oled setup
+https://www.raspberrypi-spy.co.uk/2018/04/i2c-oled-display-module-with-raspberry-pi/
+sudo apt update
+sudo apt upgrade -y
+sudo raspi-config enable i2c
+sudo apt install -y python3-dev
+sudo apt install -y python3-smbus i2c-tools
+sudo apt install -y python3-pil
+sudo apt install -y python3-pip
+sudo apt install -y python3-setuptools
+sudo apt install -y python3-rpi.gpio
+sudo apt install -y python3-venv
+
+
+
+
+
+
+
+crontab -e / sudo crontab -e
+@reboot sleep 30 && date >> ~/clock.txt
+sudo systemctl status cron.service
+
+@reboot sh /home/pieman/test-startup.sh
+
+---------------------------------------------------------
+#!/bin/sh
+
+sleep 10s
+
+piname=$(hostname)
+ip=$(hostname -I)
+
+echo $piname
+echo $ip
+
+echo $(date) > /home/pieman/startup-test.txt
+echo $piname >> /home/pieman/startup-test.txt
+echo $ip >> /home/pieman/startup-test.txt
+
+-----------------------------------------------------------
+git deploy keys
+https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key
+kainebrain.info@gmail.com
+ssh-keygen -t ed25519 -C "kainebrain.info@gmail.com"
+sudo systemctl status ssh
+ssh-add /home/testdonkey/.ssh/id_ed25519
+ssh -T git@github.com
+
+https://github.com/kainebrain/test-this
+git@github.com:kainebrain/test-this.git
+
+
+
